@@ -52,7 +52,7 @@ var controller = new Controller(database, {
 ```
 
 ## Creating endpoints
-Each controller method is called with `req` and `res` though there are shortcuts to avoid their use, particularly `res`.
+Each controller method is called with `req` and `res` though there are shortcuts to avoid their use, further abstracting away Express and behave a bit more like one might expect.
 
 ### Successful returns
 
