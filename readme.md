@@ -111,3 +111,13 @@ function endpoint (req, res) {
   res.send(404, { status: 'sad' });
 }
 ```
+
+#### Binding to multiple endpoints
+
+If you want to bind your controller to multiple endpoints, that's easily accomplished via multiple calls to `bind`.
+
+```
+myController.bind(app, 'one');
+myController.bind(app, 'two');
+myController.bind(app, 'three');
+```
