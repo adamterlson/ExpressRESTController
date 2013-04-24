@@ -19,13 +19,13 @@ Express REST Controller removes the need for the boilerplate REST code and allow
 * `database`: a `Backbone.Collection`
 * `overrides` (optional): overrides for endpoints
 
-## Restify
-Called on a controller, restify will go and hook all the controller endpoints defined to their appropriate HTTP verbs according to the chart below.
+## Bind
+Called on a controller, bind will go and hook all the controller endpoints defined to their appropriate HTTP verbs according to the chart below.
 
 Any overrides will be bound via this method as well so must be set prior to its call.
 
 ```
-myController.restify(app, endpoint)
+myController.bind(app, endpoint)
 ```
 * `app` - Your express app.
 * `endpoint` - A string representing the base endpoint that your collection will be exposed at (e.g. 'customer')
@@ -44,7 +44,7 @@ DELETE | /api/:id | remove | removes an object from the collection
 ```
 var app = express();
 var controller = new Controller();
-controller.restify(app, endpoint);
+controller.bind(app, endpoint);
 ```
 
 ## Advanced Usage
@@ -56,7 +56,7 @@ var database = new Backbone.Collection([
   // Your bootstrap data
 ]);
 var controller = new Controller(database);
-controller.restify(app, endpoint);
+controller.bind(app, endpoint);
 ```
 
 ### Overriding Endpoints

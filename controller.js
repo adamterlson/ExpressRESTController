@@ -49,7 +49,7 @@ function Controller (database, overrides) {
 			return {};
 		},
 
-		restify: function (app, endpoint) {
+		bind: function (app, endpoint) {
 			app.get(endpoint, controllerWrapper(self.list));
 			app.get(path.join(endpoint, '/:id'), controllerWrapper(self.get));
 			app.post(endpoint, controllerWrapper(self.create));
