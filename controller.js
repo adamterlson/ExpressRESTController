@@ -1,6 +1,7 @@
 var Backbone = require('backbone'),
 	extend = require('extend'),
-	__ = require('underscore');
+	__ = require('underscore'),
+	path = require('path');
 
 // Controller
 function Controller (database, overrides) {
@@ -45,15 +46,15 @@ function Controller (database, overrides) {
 		
 		remove: function (req, res) {
 			database.remove(database.get(req.params.id));
-			return;
+			return {};
 		},
 
-		restify: function (app, endpoint) {            
+		restify: function (app, endpoint) {
 			app.get(endpoint, controllerWrapper(self.list));
-			app.get(endpoint + '/:id', controllerWrapper(self.get));
+			app.get(path.join(endpoint, '/:id'), controllerWrapper(self.get));
 			app.post(endpoint, controllerWrapper(self.create));
-			app.put(endpoint + '/:id', controllerWrapper(self.update));
-			app.delete(endpoint + '/:id', controllerWrapper(self.remove));
+			app.put(path.join(endpoint, '/:id'), controllerWrapper(self.update));
+			app.delete(path.join(endpoint, '/:id'), controllerWrapper(self.remove));
 
 			return self;
 		}
