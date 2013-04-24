@@ -38,7 +38,20 @@ var controller = new Controller(database);
 controller.restify(app, endpoint);
 ```
 
-## Overriding endpoints
+## Overriding Endpoints
+Pass into the constructor of your controller your endpoint overrides:
+```
+var controller = new Controller(database, {
+  create: function (res) {
+    // new create logic
+  },
+  delete: function (res) {
+    // new delete logic
+  }
+});
+```
+
+## Creating endpoints
 Each controller method is called with `req` and `res` though there are shortcuts to avoid their use, particularly `res`.
 
 ### Successful returns
