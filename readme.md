@@ -18,6 +18,12 @@ Called on a controller, restify will go and hook all the controller endpoints de
 
 Any overrides will be bound via this method as well so must be set prior to its call.
 
+```
+myController.restify(app, endpoint)
+```
+* `app` - Your express app.
+* `endpoint` - A string representing the base endpoint that your collection will be exposed at (e.g. 'customer')
+
 ### Controller Actions
 
 HTTP METHOD | URL | Controller Action | Description
