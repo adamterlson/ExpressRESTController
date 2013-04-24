@@ -14,7 +14,7 @@ Whether it's for rapid prototyping where you don't want to be bothered with real
 
 Express REST Controller removes the need for the boilerplate REST code and allows you to just operate on a Backbone Collection as you normally would and let the REST endpoints feed into it directly.
 
-## Business Logic and API updates
+### Business Logic and API updates
 
 If your business logic operates on these in-memory Backbone Collections and Models, why can't your API?  That way, when you need to override what it means to fetch, or translations that you want to do, or listen for events you can do it in one place (Backbone) instead of two (API + Backbone).
 
