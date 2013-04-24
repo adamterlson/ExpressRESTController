@@ -8,6 +8,8 @@ Persisting that Backbone Collection to a data store or doing other interesting t
 
 ## Why would I use this...?
 
+In production?  You wouldn't (there's no tests!).  Yet.
+
 Whether it's for rapid prototyping where you don't want to be bothered with real persistent storage or because your data store doesn't nicely fit your REST and you want to have a middle-layer shim, putting a backbone collection on the server can be exceptionally powerful.
 
 Express REST Controller removes the need for the boilerplate REST code and allows you to just operate on a Backbone Collection as you normally would and let the REST endpoints feed into it directly.
