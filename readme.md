@@ -1,4 +1,5 @@
 #Express REST Controller
+========================
 This controller serves as a nice foundation for rapidly (and I do mean rapidly) creating REST APIs on a Backbone object stored in memory.
 
 By using this, you will get full CRUDL (Create, Read, Update, Delete and List) support on your Backbone Collection at an endpoint of your chosing.
@@ -17,7 +18,13 @@ Called on a controller, restify will go and hook all the controller endpoints de
 
 Any overrides will be bound via this method as well so must be set prior to its call.
 
-## Controller Actions
+```
+myController.restify(app, endpoint)
+```
+* `app` - Your express app.
+* `endpoint` - A string representing the base endpoint that your collection will be exposed at (e.g. 'customer')
+
+### Controller Actions
 
 HTTP METHOD | URL | Controller Action | Description
 --- | --- | --- | ---
@@ -27,21 +34,46 @@ POST | /api | create | adds a new object to the collection (object is in `req.bo
 PUT | /api/:id | update | updates an existing object in the collection (object is in `req.body`)
 DELETE | /api/:id | remove | removes an object from the collection
 
-## Common Usage
+## Basic Usage
+```
+var app = express();
+var controller = new Controller();
+controller.restify(app, endpoint);
+```
 
+## Advanced Usage
+### Bootstrapping Data
+By passing in your database instead of having the controller create one, you can bootstrap your collection with data as necessary.
 ```
 var app = express();
 var database = new Backbone.Collection([
-  // Your data
+  // Your bootstrap data
 ]);
 var controller = new Controller(database);
 controller.restify(app, endpoint);
 ```
 
-## Overriding endpoints
-Each controller method is called with `req` and `res` though there are shortcuts to avoid their use, particularly `res`.
+### Overriding Endpoints
+Pass into the constructor of your controller your endpoint overrides:
+```
+var controller = new Controller(null, {
+  create: function (res) {
+    // new create logic
+  },
+  delete: function (res) {
+    // new delete logic
+  }
+});
+```
 
-### Successful returns
+### Creating endpoints
+Each controller method is called with `req` and `res` though there are shortcuts to avoid their use, further abstracting away Express and behave a bit more like one might expect.
+
+#### Accessing your database
+
+Each endpoint's context contains the database passed into its constructor.  Access via `this.database`.
+
+#### Successful returns
 
 ```
 function endpoint (req) {
@@ -57,7 +89,7 @@ function endpoint (req, res) {
 }
 ```
 
-### Throwing errors
+#### Throwing errors
 Each controller is wrapped in a generic try/catch which can be a convenience for throwing errors to the caller.
 
 ```
