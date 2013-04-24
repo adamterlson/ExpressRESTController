@@ -6,6 +6,12 @@ By using this, you will get full CRUDL (Create, Read, Update, Delete and List) s
 
 Persisting that Backbone Collection to a data store or doing other interesting things with it is up to you.
 
+## Why would I use this...?
+
+Whether it's for rapid prototyping or because your data store doesn't nicely fit your entities and you want to have a middle-layer shim, putting a backbone collection on the server can be exceptionally powerful.
+
+Express REST Controller removes the need for that lovely boilerplate REST code and allows you to just operate with that Backbone Collection as you normally would and let the REST endpoints feed into it directly.
+
 ## Controller Construction
 
 `new Controller(database, overrides)`
