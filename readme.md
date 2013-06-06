@@ -1,5 +1,4 @@
 #Express REST Controller
-========================
 This controller serves as a nice foundation for rapidly (and I do mean rapidly) creating REST APIs on a Backbone object stored in memory.
 
 By using this, you will get full CRUDL (Create, Read, Update, Delete and List) support on your Backbone Collection at an endpoint of your chosing.
