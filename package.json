@@ -1,0 +1,29 @@
+{
+  "name": "ExpressRESTController",
+  "version": "0.0.1",
+  "description": "A speedy way to create RESTful APIs on Node/Express",
+  "main": "controller.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adamterlson/ExpressRESTController.git"
+  },
+  "keywords": [
+    "Express",
+    "Controller"
+  ],
+  "author": "Adam Terlson",
+  "license": "BSD",
+  "readmeFilename": "readme.md",
+  "gitHead": "88618f42157d6fbf7eac33291cf0b06ac421bf17",
+  "dependencies": {
+    "backbone": "~1.0.0",
+    "node": "0.0.0",
+    "extend": "~1.1.3",
+    "underscore": "~1.4.4",
+    "express": "~3.2.6"
+  }
+}
